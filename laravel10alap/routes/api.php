@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\szavakController;
+use App\Http\Controllers\temaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/szavak',[szavakController::class,'index']);
+Route::get('/szavak/tema/{id}',[szavakController::class,'szavakTemaval']);
+Route::get('/tema',[temaController::class,'index']);
